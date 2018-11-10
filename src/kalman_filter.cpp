@@ -65,7 +65,6 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   VectorXd H_func(3);
   H_func << eq1, atan2(py, px), (px * vx + py * vy) / eq1;
   
-//  VectorXd z_pred = H_ * x_;
   VectorXd y = z - H_func;
   // adjust y(1) arctan value to be within -M_PI and M_PI
   while (y(1) < -M_PI) {
